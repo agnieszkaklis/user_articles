@@ -12,11 +12,36 @@ part of 'author_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AuthorModel _$AuthorModelFromJson(Map<String, dynamic> json) {
   return _AuthorModel.fromJson(json);
 }
+
+/// @nodoc
+class _$AuthorModelTearOff {
+  const _$AuthorModelTearOff();
+
+  _AuthorModel call(
+      int id,
+      String picture,
+      @JsonKey(name: 'first_name') String firstName,
+      @JsonKey(name: 'last_name') String lastName) {
+    return _AuthorModel(
+      id,
+      picture,
+      firstName,
+      lastName,
+    );
+  }
+
+  AuthorModel fromJson(Map<String, Object?> json) {
+    return AuthorModel.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $AuthorModel = _$AuthorModelTearOff();
 
 /// @nodoc
 mixin _$AuthorModel {
@@ -82,11 +107,11 @@ class _$AuthorModelCopyWithImpl<$Res> implements $AuthorModelCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_AuthorModelCopyWith<$Res>
+abstract class _$AuthorModelCopyWith<$Res>
     implements $AuthorModelCopyWith<$Res> {
-  factory _$$_AuthorModelCopyWith(
-          _$_AuthorModel value, $Res Function(_$_AuthorModel) then) =
-      __$$_AuthorModelCopyWithImpl<$Res>;
+  factory _$AuthorModelCopyWith(
+          _AuthorModel value, $Res Function(_AuthorModel) then) =
+      __$AuthorModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -96,14 +121,14 @@ abstract class _$$_AuthorModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AuthorModelCopyWithImpl<$Res> extends _$AuthorModelCopyWithImpl<$Res>
-    implements _$$_AuthorModelCopyWith<$Res> {
-  __$$_AuthorModelCopyWithImpl(
-      _$_AuthorModel _value, $Res Function(_$_AuthorModel) _then)
-      : super(_value, (v) => _then(v as _$_AuthorModel));
+class __$AuthorModelCopyWithImpl<$Res> extends _$AuthorModelCopyWithImpl<$Res>
+    implements _$AuthorModelCopyWith<$Res> {
+  __$AuthorModelCopyWithImpl(
+      _AuthorModel _value, $Res Function(_AuthorModel) _then)
+      : super(_value, (v) => _then(v as _AuthorModel));
 
   @override
-  _$_AuthorModel get _value => super._value as _$_AuthorModel;
+  _AuthorModel get _value => super._value as _AuthorModel;
 
   @override
   $Res call({
@@ -112,7 +137,7 @@ class __$$_AuthorModelCopyWithImpl<$Res> extends _$AuthorModelCopyWithImpl<$Res>
     Object? firstName = freezed,
     Object? lastName = freezed,
   }) {
-    return _then(_$_AuthorModel(
+    return _then(_AuthorModel(
       id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -166,14 +191,13 @@ class _$_AuthorModel extends _AuthorModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AuthorModel &&
+            other is _AuthorModel &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.picture, picture) &&
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.lastName, lastName));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -184,23 +208,21 @@ class _$_AuthorModel extends _AuthorModel {
 
   @JsonKey(ignore: true)
   @override
-  _$$_AuthorModelCopyWith<_$_AuthorModel> get copyWith =>
-      __$$_AuthorModelCopyWithImpl<_$_AuthorModel>(this, _$identity);
+  _$AuthorModelCopyWith<_AuthorModel> get copyWith =>
+      __$AuthorModelCopyWithImpl<_AuthorModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AuthorModelToJson(
-      this,
-    );
+    return _$$_AuthorModelToJson(this);
   }
 }
 
 abstract class _AuthorModel extends AuthorModel {
   factory _AuthorModel(
-      final int id,
-      final String picture,
-      @JsonKey(name: 'first_name') final String firstName,
-      @JsonKey(name: 'last_name') final String lastName) = _$_AuthorModel;
+      int id,
+      String picture,
+      @JsonKey(name: 'first_name') String firstName,
+      @JsonKey(name: 'last_name') String lastName) = _$_AuthorModel;
   _AuthorModel._() : super._();
 
   factory _AuthorModel.fromJson(Map<String, dynamic> json) =
@@ -218,6 +240,6 @@ abstract class _AuthorModel extends AuthorModel {
   String get lastName;
   @override
   @JsonKey(ignore: true)
-  _$$_AuthorModelCopyWith<_$_AuthorModel> get copyWith =>
+  _$AuthorModelCopyWith<_AuthorModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
