@@ -22,8 +22,7 @@ ArticleModel _$ArticleModelFromJson(Map<String, dynamic> json) {
 class _$ArticleModelTearOff {
   const _$ArticleModelTearOff();
 
-  _ArticleModel call(
-      int id, @JsonKey(name: 'author_id') int authorId, String content) {
+  _ArticleModel call(int id, int authorId, String content) {
     return _ArticleModel(
       id,
       authorId,
@@ -42,7 +41,6 @@ const $ArticleModel = _$ArticleModelTearOff();
 /// @nodoc
 mixin _$ArticleModel {
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'author_id')
   int get authorId => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
 
@@ -57,7 +55,7 @@ abstract class $ArticleModelCopyWith<$Res> {
   factory $ArticleModelCopyWith(
           ArticleModel value, $Res Function(ArticleModel) then) =
       _$ArticleModelCopyWithImpl<$Res>;
-  $Res call({int id, @JsonKey(name: 'author_id') int authorId, String content});
+  $Res call({int id, int authorId, String content});
 }
 
 /// @nodoc
@@ -98,7 +96,7 @@ abstract class _$ArticleModelCopyWith<$Res>
           _ArticleModel value, $Res Function(_ArticleModel) then) =
       __$ArticleModelCopyWithImpl<$Res>;
   @override
-  $Res call({int id, @JsonKey(name: 'author_id') int authorId, String content});
+  $Res call({int id, int authorId, String content});
 }
 
 /// @nodoc
@@ -135,10 +133,10 @@ class __$ArticleModelCopyWithImpl<$Res> extends _$ArticleModelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _$_ArticleModel implements _ArticleModel {
-  _$_ArticleModel(
-      this.id, @JsonKey(name: 'author_id') this.authorId, this.content);
+  _$_ArticleModel(this.id, this.authorId, this.content);
 
   factory _$_ArticleModel.fromJson(Map<String, dynamic> json) =>
       _$$_ArticleModelFromJson(json);
@@ -146,7 +144,6 @@ class _$_ArticleModel implements _ArticleModel {
   @override
   final int id;
   @override
-  @JsonKey(name: 'author_id')
   final int authorId;
   @override
   final String content;
@@ -185,9 +182,7 @@ class _$_ArticleModel implements _ArticleModel {
 }
 
 abstract class _ArticleModel implements ArticleModel {
-  factory _ArticleModel(
-          int id, @JsonKey(name: 'author_id') int authorId, String content) =
-      _$_ArticleModel;
+  factory _ArticleModel(int id, int authorId, String content) = _$_ArticleModel;
 
   factory _ArticleModel.fromJson(Map<String, dynamic> json) =
       _$_ArticleModel.fromJson;
@@ -195,7 +190,6 @@ abstract class _ArticleModel implements ArticleModel {
   @override
   int get id;
   @override
-  @JsonKey(name: 'author_id')
   int get authorId;
   @override
   String get content;
